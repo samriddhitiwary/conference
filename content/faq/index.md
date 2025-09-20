@@ -32,7 +32,7 @@ The JSON Schema Conference will take place **December** at the [CNIT Forest – 
 
 We are looking for a Sponsor to help us cover the expenses of travel and accomodation as well as support speakers with a speaker stipend to make it easier for them to come.
 
-This is an amazing opportunity to support the Community. To know more about how to sponsor please check [the conference's page in our Open Collective](https://opencollective.com/json-schema/events/the-json-schema-conference-f259215b).
+This is an amazing opportunity to support the Community. To know more about how to sponsor please check [the conference's page in our Open Collective](https://opencollective.com/json-schema/events/the-json-schema-conference-2025-f7f367ce).
 
 
 ## CFP: Call for Paper
