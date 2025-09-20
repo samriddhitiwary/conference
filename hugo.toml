@@ -32,7 +32,7 @@ theme = "devfest-theme-hugo"
 [menu]
 [[menu.main]]
     identifier = "apply-to-speak"
-    name = "CFA"
+    name = "CFP"
     url = "https://forms.gle/zaVhgqdPvja38rVw6"
     weight = 200
     external = false
