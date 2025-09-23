@@ -20,16 +20,20 @@ draft: false
 
 <div class="cta-row">
 {{< button-link label="Apply to Speak"
-              url="https://forms.gle/zaVhgqdPvja38rVw6" >}}
+              url="https://forms.gle/zaVhgqdPvja38rVw6"
+              target="_blank" >}}
 
 {{< button-link label="Become a Sponsor" 
-              url="https://opencollective.com/json-schema/events/the-json-schema-conference-2025-f7f367ce" >}}
+              url="https://opencollective.com/json-schema/events/the-json-schema-conference-2025-f7f367ce"
+              target="_blank" >}}
 
 {{< button-link label="Meet Speakers"
-              url="./speakers" >}}
+              url="./speakers"
+              target="_blank" >}}
 
 {{< button-link label="Get Tickets"
-              url="https://ticket.apidays.global/event/apidays-paris-2025/3cccd07f-acb2-466e-8d91-cb1f208ecf42?_gl=1*1i6mx1e*_gcl_au*MTY3OTY0ODcyNS4xNzUwMTA0MzA4" >}}
+              url="https://ticket.apidays.global/event/apidays-paris-2025/3cccd07f-acb2-466e-8d91-cb1f208ecf42?_gl=1*1i6mx1e*_gcl_au*MTY3OTY0ODcyNS4xNzUwMTA0MzA4" 
+              target="_blank" >}}
 
 </div>
 
