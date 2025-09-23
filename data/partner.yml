@@ -1,4 +1,5 @@
-en:
-  why: "Why be a partner of JSON Schema Conf?"
-  socials: "Find them via:"
-  jobs: "They are recruiting, take the opportunity:"
+platinum:
+  - name: Octue
+    homepage_url: https://www.octue.com/
+    logo: octue.svg
+    description: Octue helps scientists and engineers in energy and climate sectors work with data.

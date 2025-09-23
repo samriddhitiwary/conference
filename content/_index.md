@@ -3,11 +3,36 @@ title: JSON Schema Conference 2025
 draft: false
 ---
 
-{{% jumbo img="/images/backgrounds/back-00.jpg" imgLabel="JSON Schema Conference 2025" %}}
-
-## December 9th, 2025
+{{% jumbo img="/images/conferences/2024/1000004748.jpg" imgLabel="JSON Schema Conference 2025" %}}
 
 ### JSON Schema Conference | CNIT Forest Paris - France
+
+<h2 style="display: flex; justify-content: center; align-items: center; margin: 0; padding: 0; margin:8px 0;">December 11th, 2025</h2>
+
+<div class="scroll-icon-positioned" aria-hidden="true">
+  <svg class="icon icon-scroll-down">
+    <use xlink:href="#scroll-down"></use>
+  </svg>
+</div>
+
+
+{{< countdown >}}
+
+<div class="cta-row">
+{{< button-link label="Apply to Speak"
+              url="https://forms.gle/zaVhgqdPvja38rVw6" >}}
+
+{{< button-link label="Become a Sponsor" 
+              url="https://opencollective.com/json-schema/events/the-json-schema-conference-2025-f7f367ce" >}}
+
+{{< button-link label="Meet Speakers"
+              url="./speakers" >}}
+
+{{< button-link label="Get Tickets"
+              url="https://ticket.apidays.global/event/apidays-paris-2025/3cccd07f-acb2-466e-8d91-cb1f208ecf42?_gl=1*1i6mx1e*_gcl_au*MTY3OTY0ODcyNS4xNzUwMTA0MzA4" >}}
+
+</div>
+
 
 {{% /jumbo %}}
 
@@ -20,44 +45,17 @@ of the JSON Schema Ecosystem to further the education, adoption and evolution of
 
 {{% /home-info %}}
 
-{{% home-speakers %}}
-## Featured Speakers
-
-{{< button-link label="meet speakers"
-                url="./speakers"
-                icon="right" >}}
-
-{{< button-link label="Apply to Speak"
-                  url="#apply-to-speak" >}}
-  
-{{< button-link label="Become a Sponsor" 
-                  url="/partners" >}}
-  
-{{< button-link label="Get Tickets"
-                  url="#get-tickets" >}}
-
-## About the Event
-
-The JSON Schema Conference is the premier event bringing together developers, architects, and enthusiasts to explore the latest advances in JSON Schema technology. Held in Paris at CNIT Forest on December 9th, 2025, it's a unique opportunity to learn, network, and grow within the community.
-
-{{% /home-speakers %}}
-
-
-{{% home-location
-    image="/images/map7.png"
+{{< home-location
     address="CNIT Forest Paris - France"
     latitude="48.892848"
-    longitude="2.240017" %}}
+    longitude="2.240017" >}}
 
-{{% /home-location %}}
+{{< /home-location >}}
 
-{{% partners categories="platinum" %}}
+{{< past-sessions title="Past Sessions" >}}
 
-## Sponsors
+{{< tickets >}}
 
-<center>
-{{< button-link label="Become a Sponsor"
-                url="faq/#how-to-become-a-sponsorpartner">}}
-</center>
+{{< sponsors-cta >}}
 
-{{% /partners %}}
+{{< sponsors-list >}}
