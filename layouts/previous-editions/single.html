@@ -12,33 +12,7 @@
             <div class="edition-description">
                 {{ .Content }}
             </div>
-            <h1>Picture Highlights</h1>
 
-            {{ $year := .Params.year }}
-            {{ $path := printf "images/conferences/%d" $year }}
-            {{ $fullpath := printf "static/%s" $path }}
-
-            {{ if (fileExists $fullpath) }}
-            <div class="conference-slider">
-                {{ range readDir $fullpath }}
-                <div class="slide">
-                    <img src="/{{ $path }}/{{ .Name }}" alt="Conference photo">
-                </div>
-                {{ end }}
-
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-            </div>
-            {{ else }}
-            <p>No images available for {{ $year }}.</p>
-            {{ end }}
-
-
-            <!-- Modal for expanded view -->
-            <div id="imageModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="expandedImg">
-            </div>
         </div>
 
         <div class="edition-navigation">
@@ -210,120 +184,46 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
-    .conference-slider {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.059);
-        width: 100%;
-        max-width: 900px;  
-        aspect-ratio: 16 / 9; 
-        margin: 2rem auto;
-        overflow: hidden;
-        border-radius: 12px;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .conference-slider img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-        width: 100%;
-        height: 100%;
-        object-fit: contain; 
-        display: block;
-    }
-
-    .slide { display: none; }
-    .slide.active { display: block; }
-
-    .prev, .next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0,0,0,0.5);
-        color: white;
-        border: none;
-        padding: 0.6rem 1rem;
-        cursor: pointer;
-        border-radius: 20%;
-        z-index: 10;
-    }
-    .prev { left: 10px; }
-    .next { right: 10px; }
-    .prev:hover, .next:hover {
-        background: rgba(0,0,0,0.8);
-        transform: translateY(-50%) scale(1.1);
-        transition: transform 0.2s ease;
-    }
-
-    /* Small screens adjustments */
-    @media (max-width: 768px) {
-    .conference-slider {
-        max-width: 100%;
-        aspect-ratio: 4 / 3;
-    }
-    }
-
-    @media (max-width: 480px) {
-    .conference-slider {
-        aspect-ratio: 1 / 1;
-    }
-    .prev, .next {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
-    }
-    }
-
-
-    /* Modal (expanded image) */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        padding-top: 60px;
-        left: 0; top: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.9);
-    }
-    .modal-content {
-        margin: auto;
-        display: block;
-        max-width: 80%;
-        max-height: 80%;
-    }
-    .close {
-        position: absolute;
-        top: 20px; right: 35px;
-        color: white;
-        font-size: 40px;
-        cursor: pointer;
-    }
+    
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   let slides = document.querySelectorAll(".conference-slider .slide");
   let current = 0;
-  
+  let interval; 
+
   function showSlide(i) {
     slides.forEach(s => s.classList.remove("active"));
     slides[i].classList.add("active");
   }
-  document.querySelector(".next").onclick = () => {
+
+  function nextSlide() {
     current = (current + 1) % slides.length;
     showSlide(current);
-  };
-  document.querySelector(".prev").onclick = () => {
+  }
+
+  function prevSlide() {
     current = (current - 1 + slides.length) % slides.length;
     showSlide(current);
+  }
+
+  function resetTimer() {
+    clearInterval(interval);
+    interval = setInterval(nextSlide, 2000); 
+  }
+
+  document.querySelector(".next").onclick = () => {
+    nextSlide();
+    resetTimer();
   };
 
-  // Modal functionality
+  document.querySelector(".prev").onclick = () => {
+    prevSlide();
+    resetTimer();
+  };
+
+ 
   let modal = document.getElementById("imageModal");
   let modalImg = document.getElementById("expandedImg");
   let close = document.querySelector(".close");
@@ -334,11 +234,13 @@ document.addEventListener("DOMContentLoaded", () => {
       modalImg.src = e.target.src;
     };
   });
-  close.onclick = () => modal.style.display = "none";
-  modal.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
 
+  close.onclick = () => modal.style.display = "none";
+  modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
   showSlide(current);
+  resetTimer(); // start auto sliding
 });
+
 </script>
 
 {{ end }} 

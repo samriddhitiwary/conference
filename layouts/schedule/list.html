@@ -1,111 +1,211 @@
 {{ define "main" }}
 
+<div class="hero">
+    <h1 class="heading marginTop">Schedule</h1>
+</div>
 
-{{ .Content }}
+<main class="schedule-container">
+    {{ .Content }}
 
-{{ $lang := $.Page.Language.Lang }}
+    {{ with (index (where $.Site.Data.rooms "key" "main") 0) }}
+        <header class="schedule-header">
+            <h3><b>{{ .label }}</b></h3>
+            <h3>{{ .description }}</h3>
+        </header>
+    {{ end }}
 
-<nav class="day-tabs">
-	{{ range $day := $.Site.Data.schedule }}
-	<a href="#day_{{$day.day}}">{{- partial "date-long.html" (dict "time" .day "lang" $lang) }}</a>
-	{{ end }}
-</nav>
+    {{ range $day := $.Site.Data.schedule }}
+    <section id="day_{{ .day }}" class="day-block">
+        <h2 class="day-title">{{- partial "date-long.html" (dict "time" .day "lang" $.Page.Language.Lang) }}</h2>
 
-{{ $.Scratch.Set "maxEnd" 0 }}
-{{ range $.Site.Data.slots }}
-	{{ if gt .row.end ($.Scratch.Get "maxEnd") }}
-	{{ $.Scratch.Set "maxEnd" .row.end }}
-	{{ end}}
-{{ end }}
+        {{ $slotsForDay := (index .rooms 0).slots }}
+        {{ range $slotRef := $slotsForDay }}
+            {{ with (index (where $.Site.Data.slots "key" $slotRef.slot) 0) }}
+                {{ $slotData := . }}
+                <div class="timeslot">
+                    <div class="time-marker">{{ $slotData.start }} - {{$slotData.end}}</div>
+                    <div class="sessions-grid">
 
-{{ $maxEnd := $.Scratch.Get "maxEnd" }}
+                        {{ range $index, $room := $day.rooms }}
+                            {{ with (index (where $room.slots "slot" $slotData.key) 0) }}
+                                {{ $sessionRef := . }}
 
-<section class="schedule{{ if $.Params.horizontal}} horizontal{{ end  }}">
+                                {{ with (index (where $.Site.AllPages "Params.key" $sessionRef.talk) 0) }}
+                                    {{ $sessionPage := . }}
+                                    {{ $roomData := index (where $.Site.Data.rooms "key" $room.room) 0 }}
 
-	{{ range $day := $.Site.Data.schedule }}
-	{{ $time := split $day.start ":" }}
-	{{ $dayStartH := index $time 0 }}
-	{{ $dayStartM := index $time 1 }}
-	{{ $time := split $day.end ":" }}
-	{{ $dayEndH := index $time 0 }}
-	{{ $dayEndM := index $time 1 }}
+                                    {{/* Call the partial instead of inline HTML */}}
+                                    {{ partial "schedule-session.html" (dict "sessionPage" $sessionPage "roomData" $roomData) }}
 
-	<article id="day_{{$day.day}}" class="day"
-	         style="--rooms: {{ len .rooms }}; --end: {{ $maxEnd }};">
+                                {{ end }}
+                            {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+            {{ end }}
+        {{ end }}
+    </section>
+    {{ end }}
+</main>
 
-		<h2>{{- partial "date-long.html" (dict "time" .day "lang" $lang) }}</h2>
+<style>
+    :root {
+        --primary-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        --border-color: #e0e0e0;
+        --time-color: #666;
+        --room-color: #8e44ad; /* Purple */
+        --card-bg: #ffffff;
+        --body-bg: #f9f9f9;
+        --heading-color: #333;
+        --tag-bg: #ecf0f1;
+        --tag-color: #7f8c8d;
+        --accent-color: #3498db; /* Blue */
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: var(--primary-font);
+        background-color: var(--body-bg);
+        color: var(--heading-color);
+        margin: 0;
+        padding: 0;
+    }
+    .marginTop{
+        margin-top: -55px !important;
+    }
+    .schedule-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    .schedule-header {
+        text-align: center;
+        padding: 3rem 1rem 0.1rem;
+    }
+    .schedule-header h1 {
+        font-size: 3rem;
+        margin: 0 0 0.5rem 0;
+    }
+    .schedule-header p {
+        font-size: 1.25rem;
+        color: var(--time-color);
+        margin: 0;
+    }
+    .day-tabs {
+        position: sticky;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 2rem;
+    }
+    .day-tabs a {
+        text-decoration: none;
+        color: var(--accent-color);
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .day-tabs a:hover {
+        background-color: #eaf3fb;
+    }
+    .day-block {
+        margin-bottom: 4rem;
+        padding-top: 2rem;
+    }
+    .day-block::before{
+        display: none; /* Removed extra space before at start overriding theme.css */
+    }
+    .day-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--heading-color);
+        border-bottom: 3px solid var(--border-color);
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+    }
 
-		{{ with (index .rooms 0) }}
-		{{ range .slots }}
-		{{ $slot := index (where $.Site.Data.slots "key" .slot) 0 }}
-		{{ $time := split $slot.start ":" }}
-		{{ $hh := index $time 0 }}
-		{{ $mm := index $time 1 }}
-		<div class="slot" style="--duration: {{ $slot.duration }}; --row-start: {{ $slot.row.start }}; --row-end: {{ $slot.row.end }};">
-			<span class="hh">{{ $hh }}</span>
-			<span class="mm">{{ $mm }}</span>
-		</div>
-		{{ end }}
-		{{ end }}
+    .time-marker {
+        /* Style the time as a full-width header for the slot */
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--time-color);
+        width: 90%;
+        margin-bottom: 1.3rem; /* Space between time and session cards */
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-color); /* Add a separator line */
+    }
 
-		{{ range $index, $room := .rooms }}
-		{{ range where (where $.Site.Data.rooms "key" $room.room) "skip" "!=" true }}
-		<!-- Room {{ $room.room }} -->
-		<div class="room {{ if (modBool $index 2)}}even{{end}}" style="--room: {{ $index }};">
-			<h3>
-				{{ .label }}
-				{{ if .description }}
-				<small>{{ .description }}</small>
-				{{ end }}
-			</h3>
-		</div>
+    .day-block {
+        display: grid;
+        /* Create a 2-column grid that flows left-to-right, then wraps */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        width: 100%;
+    }
+    .session-room {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--room-color);
+        margin: 0 0 1rem 0;
+    }
+    .session-speakers {
+        font-style: italic;
+        margin: 0 0 1rem 0;
+    }
+    .session-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+    .session-tag, .session-format {
+        background-color: var(--tag-bg);
+        color: var(--tag-color);
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
 
-		{{ range $room.slots }}
-		{{ $sessionPage := index (where $.Site.AllPages "Params.key" .talk ) 0}}
-		{{ $slot := index (where $.Site.Data.slots "key" .slot) 0 }}
-		{{ $time := split $slot.start ":" }}
-		{{ $hh := index $time 0 }}
-		{{ $mm := index $time 1 }}
-		<div class="session format-{{$sessionPage.Params.format}} tag-{{ anchorize (delimit ($sessionPage.Params.tags | default (slice)) " " ) }}"
-		style="--room: {{ $index }}; --row-start: {{ $slot.row.start }}; --row-end: {{ $slot.row.end }};">
+	@media (max-width: 480px) {
+        .schedule-header h1 {
+            font-size: 2.2rem;
+        }
+        .day-title {
+            font-size: 1.8rem;
+        }
 
-		<span class="start">
-			<span class="hh">{{ $hh }}</span>
-			<span class="mm">{{ $mm }}</span>
-		</span>
-		{{ partial "schedule-session" $sessionPage }}
+        /* On mobile, switch to a single-column layout for sessions */
+        .day-block {
+            grid-template-columns: 1fr;
+        }
 
-		</div>
-		{{ end }}
-		<!-- End room {{ $room.room }} -->
-		{{ end }}
-		{{ end }}
-
-	</article>
-	{{ end }}
-    
-</section>
-
-<!--<a href="#" class="goto-top" aria-label="Top">⬆︎</a>-->
-
-{{ end }}
-
-{{ define "scripts" }}
-<script>
-function checkLinks() {
-    const currentDay = document.location.hash;
-    if (!currentDay) {
-        let firstDay = document.querySelector('nav.day-tabs a');
-        if (firstDay) {
-            firstDay.click();
+        .day-tabs {
+            justify-content: flex-start;
+            padding: 0.5rem 1rem;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+        .time-marker {
+            /* Style the time as a full-width header for the slot */
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--time-color);
+            width: 90%;
+            margin-bottom: 1rem; /* Space between time and session cards */
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid var(--border-color); /* Add a separator line */
         }
     }
-    document.querySelectorAll('nav.day-tabs a')
-        .forEach(function(lnk) {
-            lnk.classList.toggle('active', lnk.getAttribute('href') === currentDay);
-        });
-}
-window.addEventListener("load", checkLinks, false);
-window.addEventListener("hashchange", checkLinks, false);
-</script>
+</style>
+
 {{ end }}
