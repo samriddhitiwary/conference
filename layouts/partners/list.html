@@ -8,10 +8,11 @@
 
 <section>
     <div style="text-align: center; margin: 4rem 0; font-size: 1.5rem;">
-        <p>We are looking forward to announcing our amazing sponsors for JSON Schema Conference 2025.</p>
-        
+        <strong>2025 Sponsorship Tiers</strong>
+        <p>Support the JSON Schema Conference and be part of our community!</p>
+
         <div style="margin: 2rem 0;">
-            <a href="https://opencollective.com/json-schema/events/the-json-schema-conference-2025-f7f367ce" 
+            <a href="https://opencollective.com/json-schema/events/the-json-schema-conference-2025-f7f367ce"
                style="display: inline-block; padding: 1rem 2rem; background: #005A9E; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
                Become a Sponsor
             </a>
@@ -29,62 +30,131 @@
         </div>
     </div>
 
+    <!-- 2025 Platinum Sponsors Section -->
+    {{ if gt (len .Site.Data.partner.platinum) 0 }}
     <div style="text-align: center; margin: 4rem 0; font-size: 1.5rem;">
-        <strong>Previous Sponsors (2024)</strong>
-        <p>We extend our gratitude to the sponsors who supported JSON Schema Conference 2024.</p>
+        <strong>Our Platinum Sponsors (2025)</strong>
+        <p>Special thanks to our premium sponsors who make this conference possible.</p>
     </div>
 
-    {{ if gt (len .Site.Data.sponsors.platinum.items) 0 }}
     <div class="partners-group partner-platinum">
-        <h3 class="fancy"><strong><span>Platinum Sponsor</span></strong></h3>
+        <h3 class="fancy"><strong><span>Platinum</span></strong></h3>
         <div class="carousel-container">
             <div class="carousel-track">
-                {{ range .Site.Data.sponsors.platinum.items }}
+                {{ range .Site.Data.partner.platinum }}
                 <div class="carousel-item">
-                    {{ partial "sponsor-card.html" . }}
+                    <div class="sponsor-card-simple">
+                        <a href="{{ .homepage_url }}" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-logo-section">
+                                <img src="/images/partners/platinum/{{ .logo }}" alt="{{ .name }} Logo" />
+                            </div>
+                            <div class="sponsor-name-section">{{ .name }}</div>
+                        </a>
+                    </div>
                 </div>
                 {{ end }}
             </div>
         </div>
     </div>
     {{ end }}
-    
-    {{/*ADD BELOW LINE CODE WHEN THERE ARE BRONZE AND GOLD SPONSORS*/}}
-    {{/*  {{ if gt (len .Site.Data.sponsors.gold.items) 0 }}
-        <div class="partners-group partner-gold">
-        <h3 class="fancy"><span>Gold Sponsor</span></h3>
-        <div class="carousel-container">
-            <div class="carousel-track">
-                {{ range .Site.Data.sponsors.gold.items }}
-                <div class="carousel-item">
-                    {{ partial "sponsor-card.html" . }}
+
+    <!-- Media Partners Section -->
+    {{ if gt (len .Site.Data.partner.media) 0 }}
+    <div style="text-align: center; margin: 4rem 0; font-size: 1.5rem;">
+        <strong>Media Partners (2025)</strong>
+        <p>Thanks to our media partners for helping spread the word!</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            {{ range .Site.Data.partner.media }}
+            <div class="carousel-item">
+                <div class="sponsor-card-simple">
+                    <a href="{{ .homepage_url }}" target="_blank" rel="noopener noreferrer">
+                        <div class="sponsor-logo-section">
+                            <img src="/images/media-partners/{{ .logo }}" alt="{{ .name }} Logo" />
+                        </div>
+                        <div class="sponsor-name-section">{{ .name }}</div>
+                    </a>
                 </div>
-                {{ end }}
             </div>
-            </div>
+            {{ end }}
         </div>
-    {{ end }}  */}}
+    </div>
+    {{ end }}
 
-    {{/*  {{ if gt (len .Site.Data.sponsors.bronze.items) 0 }}
-        <div class="partners-group partner-bronze">
-        <h3 class="fancy"><span>Bronze Sponsor</span></h3>
-        <div class="carousel-container">
-            <div class="carousel-track">
-                {{ range .Site.Data.sponsors.bronze.items }}
-                <div class="carousel-item">
-                    {{ partial "sponsor-card.html" . }}
-                </div>
-                {{ end }}
+    <div style="text-align: center; margin: 4rem 0; font-size: 1.5rem;">
+        <strong>Previous Sponsors (2024)</strong>
+        <p>We extend our gratitude to the sponsors who supported JSON Schema Conference 2024.</p>
+    </div>
+
+    {{ if gt (len .Site.Data.sponsors.platinum.items) 0 }}
+    <div style="text-align: center; margin: 2rem 0;">
+        <div class="sponsors-grid centered">
+            {{ range .Site.Data.sponsors.platinum.items }}
+            <div class="sponsor-card-simple">
+                <a href="{{ .homepage_url }}" target="_blank" rel="noopener noreferrer">
+                    <div class="sponsor-logo-section">
+                        <img src="/images/partners/platinum/{{ .logo }}" alt="{{ .name }} Logo" />
+                    </div>
+                    <div class="sponsor-name-section">{{ .name }}</div>
+                </a>
             </div>
-            </div>
+            {{ end }}
         </div>
-    {{ end }}  */}}
-
-
+    </div>
+    {{ end }}
 
 </section>
 
 <style>
+/* Sponsor Card Simple (for platinum & media partners) */
+.sponsor-card-simple {
+  display: inline-block;
+  width: 200px;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #fff;
+}
+
+.sponsor-card-simple:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.sponsor-card-simple a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sponsor-logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  min-height: 100px;
+}
+
+.sponsor-logo-section img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.sponsor-name-section {
+  padding: 0.8rem 1rem;
+  background-color: #f0f0f0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #222;
+  text-align: center;
+}
+
 /* Sponsorship Tiers Grid (2025) */
 .sponsor-tiers {
     display: grid;

@@ -2,32 +2,359 @@
 
   {{ with site.Data.partner.platinum }}
     <hr class="sponsors-divider" />
-    <h2 style="text-align: center; font-weight: bold; color: #73737a;">Past Platinum Sponsor (2024)</h2>
-    <div class="sponsors-grid">
-      {{ range . }}
-        <div class="sponsor-card">
-          <a href="{{ .homepage_url }}" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-            <img class="sponsor-logo" src="/images/partners/platinum/{{ .logo }}" alt="{{ .name }} Logo" />
-          </a>
+    <div style="text-align: center; margin: 4rem 0; font-size: 1.5rem;">
+        <strong>Our Platinum Sponsors (2025)</strong>
+        <p>Special thanks to our premium sponsors who make this conference possible.</p>
+    </div>
+
+    <div class="partners-group partner-platinum">
+        <h3 class="fancy"><strong><span>Platinum</span></strong></h3>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                {{ range . }}
+                <div class="carousel-item">
+                    <div class="sponsor-card-simple">
+                        <a href="{{ .homepage_url }}" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-logo-section">
+                                <img src="/images/partners/platinum/{{ .logo }}" alt="{{ .name }} Logo" />
+                            </div>
+                            <div class="sponsor-name-section">{{ .name }}</div>
+                        </a>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
         </div>
-      {{ end }}
     </div>
   {{ end }}
 
-  {{ with site.Data.partner.bronze }}
+  {{ with site.Data.partner.media }}
     <hr class="sponsors-divider" />
-    <h2 class="sponsors-category" style="text-align: center; font-weight: bold;">Bronze</h2>
-    <div class="sponsors-grid">
-      {{ range . }}
-        <div class="sponsor-card">
-          <a href="{{ .homepage_url }}" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-            <img class="sponsor-logo" src="/images/partners/bronze/{{ .logo }}" alt="{{ .name }} Logo" />
-            <h3 class="sponsor-name">{{ .name }}</h3>
-          </a>
-          <p class="sponsor-description">{{ .description }}</p>
+    <div style="text-align: center; margin: 4rem 0; font-size: 1.5rem;">
+        <strong>Media Partners (2025)</strong>
+        <p>Thanks to our media partners for helping spread the word!</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            {{ range . }}
+            <div class="carousel-item">
+                <div class="sponsor-card-simple">
+                    <a href="{{ .homepage_url }}" target="_blank" rel="noopener noreferrer">
+                        <div class="sponsor-logo-section">
+                            <img src="/images/media-partners/{{ .logo }}" alt="{{ .name }} Logo" />
+                        </div>
+                        <div class="sponsor-name-section">{{ .name }}</div>
+                    </a>
+                </div>
+            </div>
+            {{ end }}
         </div>
-      {{ end }}
     </div>
   {{ end }}
+
+  {{ with site.Data.sponsors.platinum.items }}
+    <hr class="sponsors-divider" />
+    <div style="text-align: center; margin: 4rem 0; font-size: 1.5rem;">
+        <strong>Previous Sponsors (2024)</strong>
+        <p>We extend our gratitude to the sponsors who supported JSON Schema Conference 2024.</p>
+    </div>
+
+    <div style="text-align: center; margin: 2rem 0;">
+        <div class="sponsors-grid centered">
+            {{ range . }}
+            <div class="sponsor-card-simple">
+                <a href="{{ .homepage_url }}" target="_blank" rel="noopener noreferrer">
+                    <div class="sponsor-logo-section">
+                        <img src="/images/partners/platinum/{{ .logo }}" alt="{{ .name }} Logo" />
+                    </div>
+                    <div class="sponsor-name-section">{{ .name }}</div>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+  {{ end }}
+
 
 </div>
+
+<style>
+/* Title styling for sponsors sections */
+.sponsors-title {
+  text-align: center;
+  font-weight: bold;
+  color: #73737a;
+  font-size: 1.4em;
+  line-height: 1.2;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.sponsors-title:before,
+.sponsors-title:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 25%;
+  height: 1px;
+  background-color: #73737a;
+}
+
+.sponsors-title:before {
+  left: 0;
+}
+
+.sponsors-title:after {
+  right: 0;
+}
+
+/* Grid with centered items */
+.sponsors-grid.centered {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+/* Sponsor card simple - matching partners page */
+.sponsor-card-simple {
+  display: inline-block;
+  width: 200px;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #fff;
+}
+
+.sponsor-card-simple:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.sponsor-card-simple a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sponsor-logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  min-height: 100px;
+}
+
+.sponsor-logo-section img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.sponsor-name-section {
+  padding: 0.8rem 1rem;
+  background-color: #f0f0f0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #222;
+  text-align: center;
+}
+
+/* Partner section headers */
+.partners-group {
+  margin: 2rem 0;
+}
+.partners-group h3 {
+  text-align: center;
+  margin: 1rem 0;
+}
+.partners-group .fancy {
+  font-size: 1.4em;
+  line-height: .5;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.partners-group .fancy span {
+  display: inline-block;
+  position: relative;
+  text-transform: capitalize;
+}
+.partners-group .fancy span:after,
+.partners-group .fancy span:before {
+  top: 40%;
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 140%;
+  max-width: 25vw;
+  background: currentColor;
+}
+.partners-group .fancy span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.partners-group .fancy span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+/* Platinum */
+.partners-group.partner-platinum .fancy {
+  color: #73737a;
+}
+.partners-group.partner-platinum .fancy span:after,
+.partners-group.partner-platinum .fancy span:before {
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+}
+/* Gold */
+.partners-group.partner-gold .fancy {
+  color: #b7935b;
+}
+.partners-group.partner-gold .fancy span:after,
+.partners-group.partner-gold .fancy span:before {
+  top: 20%;
+  border-bottom: 1px solid;
+}
+/* Bronze */
+.partners-group.partner-bronze .fancy {
+  color: #cd7f32;
+}
+.partners-group.partner-bronze .fancy span:after,
+.partners-group.partner-bronze .fancy span:before {
+  top: 30%;
+  border-bottom: 1px dashed;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+}
+
+.carousel-item .sponsor-card {
+  width: 200px;
+  height: 200px;
+}
+
+@media (max-width: 1024px) {
+  /* Medium devices */
+  .sponsor-tiers {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 1rem;
+  }
+
+  .sponsor-tier-grid {
+    grid-template-columns: repeat(2, auto);
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Tablets / small screens */
+  .sponsor-tiers {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+  }
+
+  .sponsor-tier-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .carousel-item .sponsor-card {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile devices */
+  .sponsor-tiers {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .sponsor-tier-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .carousel-item .sponsor-card {
+    width: 120px;
+    height: 120px;
+  }
+}
+</style>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    const carousels = document.querySelectorAll(".carousel-container");
+
+    carousels.forEach((carouselContainer, index) => {
+        const carouselTrack = carouselContainer.querySelector(".carousel-track");
+        const items = carouselTrack ? carouselTrack.children : [];
+
+        // Only run carousel if there are 6 or more items
+        if (carouselTrack && items.length >= 6) {
+            const scrollWidth = carouselTrack.scrollWidth / 2;
+            let scrollAmount = 0;
+            const scrollSpeed = 1;
+            let isPaused = false;
+            const direction = index % 2 === 0 ? 1 : -1;
+
+            function scroll() {
+                if (!isPaused) {
+                    scrollAmount += scrollSpeed * direction;
+
+                    // Wrap scrollAmount properly
+                    if (scrollAmount >= scrollWidth) scrollAmount = 0;
+                    if (scrollAmount <= -scrollWidth) scrollAmount = 0;
+
+                    carouselTrack.style.transform = `translateX(${direction === 1 ? -scrollAmount : scrollAmount}px)`;
+                }
+                requestAnimationFrame(scroll);
+            }
+            carouselContainer.addEventListener("mouseenter", () => {
+                isPaused = true;
+            });
+            carouselContainer.addEventListener("mouseleave", () => {
+                isPaused = false;
+            });
+
+            scroll();
+        } else {
+            //if fewer than 6 items, ensure track is not transformed
+            if (carouselTrack) {
+                carouselTrack.style.transform = "translateX(0)";
+            }
+        }
+    });
+});
+
+</script>
+

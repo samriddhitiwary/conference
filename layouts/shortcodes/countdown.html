@@ -1,24 +1,190 @@
-<!-- <div class="countdown-container">
+<div class="countdown-container countdown-enhanced">
   <div class="countdown-header">
     <h5>Secure your spot at JSON Schema Conference 2025</h5>
   </div>
-  
-  <div id="countdown" class="countdown-timer">
+
+  <div id="countdown" class="countdown-timer countdown-enhanced-timer">
     <div class="countdown-item">
-      <span id="days">--</span>
+      <div class="countdown-number-box">
+        <span id="days">--</span>
+      </div>
       <label>Days</label>
     </div>
+    <div class="countdown-separator">:</div>
     <div class="countdown-item">
-      <span id="hours">--</span>
+      <div class="countdown-number-box">
+        <span id="hours">--</span>
+      </div>
       <label>Hours</label>
     </div>
+    <div class="countdown-separator">:</div>
     <div class="countdown-item">
-      <span id="minutes">--</span>
+      <div class="countdown-number-box">
+        <span id="minutes">--</span>
+      </div>
       <label>Minutes</label>
     </div>
+    <div class="countdown-separator">:</div>
     <div class="countdown-item">
-      <span id="seconds">--</span>
+      <div class="countdown-number-box">
+        <span id="seconds">--</span>
+      </div>
       <label>Seconds</label>
     </div>
   </div>
-</div> -->
+</div>
+
+<style>
+.countdown-container.countdown-enhanced {
+  background: linear-gradient(135deg, #005A9E 0%, #0071BC 100%);
+  color: white;
+  border-radius: 1rem;
+  padding: 0.8rem;
+  margin: 0.5rem auto;
+  max-width: 600px;
+  width: calc(100% - 2rem);
+  box-shadow: 0 8px 32px rgba(0, 90, 158, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-container.countdown-enhanced::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, 20px); }
+}
+
+.countdown-header h5 {
+  font-size: 1.1rem;
+  color: white;
+  margin: 0;
+}
+
+.countdown-timer.countdown-enhanced-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.8rem 0;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.countdown-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.4rem;
+  min-width: 70px;
+  max-width: 80px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-number-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.countdown-item span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+}
+
+.countdown-item label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.countdown-separator {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .countdown-container.countdown-enhanced {
+    padding: 0.6rem;
+    margin: 0.3rem auto;
+  }
+
+  .countdown-header h5 {
+    font-size: 1rem;
+  }
+
+  .countdown-timer.countdown-enhanced-timer {
+    gap: 0.5rem;
+    margin: 0.6rem 0;
+  }
+
+  .countdown-item {
+    min-width: 60px;
+    max-width: 70px;
+    padding: 0.3rem 0.2rem;
+    height: 50px;
+    flex: 1;
+    align-items: center;
+  }
+
+  .countdown-item span {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-container.countdown-enhanced {
+    margin: 0.3rem auto;
+    padding: 0.6rem;
+    width: calc(100% - 1rem);
+  }
+
+  .countdown-header h5 {
+    font-size: 0.9rem;
+  }
+
+  .countdown-timer.countdown-enhanced-timer {
+    gap: 0.5rem;
+    margin: 0.6rem 0;
+    justify-content: space-between;
+  }
+
+  .countdown-item {
+    min-width: 60px;
+    max-width: 70px;
+    padding: 0.3rem 0.2rem;
+    height: 50px;
+    flex: 1;
+    align-items: center;
+  }
+
+  .countdown-item span {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animation for number changes */
+@keyframes pulse-number {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+</style>
