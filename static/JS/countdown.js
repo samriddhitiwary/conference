@@ -15,10 +15,10 @@ function updateCountdown() {
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-  const secondsEl = document.getElementById("seconds");
+  const daysEl = document.querySelector(".days");
+  const hoursEl = document.querySelector(".hours");
+  const minutesEl = document.querySelector(".minutes");
+  const secondsEl = document.querySelector(".seconds");
 
   // Add animation class when values change
   function updateWithAnimation(element, newValue, oldValue) {
