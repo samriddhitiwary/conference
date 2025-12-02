@@ -1,43 +1,73 @@
-<a href="{{ .Params.key }}">
+<a href="{{ .Params.key }}" class="session-card-link">
+	<div class="session-card-wrapper">
+		<div class="session-card-header">
+			<div class="session-meta">
+				{{ if .Params.format }}
+				<span class="session-format">{{ .Params.format }}</span>
+				{{ end }}
+				{{ if .Params.duration }}
+				<span class="session-duration">{{ .Params.duration }} min</span>
+				{{ end }}
+			</div>
+			{{ if .Params.tags }}
+			<div class="session-tags">
+				{{ range .Params.tags }}
+					{{ if ne . "talk" }}
+						{{ range first 1 (where $.Site.Data.categories "key" .) }}
+						<span class="tag-badge">{{ .name }}</span>
+						{{ end }}
+					{{ end }}
+				{{ end }}
+			</div>
+			{{ end }}
+		</div>
 
-<h2>
-	{{ .Title }}
-	<span class="language {{ anchorize .Params.language }}"></span>
-</h2>
+		<h2 class="session-title-card">
+			{{ .Title }}
+			<span class="language {{ anchorize .Params.language }}"></span>
+		</h2>
 
-<hr>
-
-<div class="info">
-	{{ if.Params.tags }}
-	<div class="tags">
-		{{ range .Params.tags }}
-			{{ range first 1 (where $.Site.Data.categories "key" .) }}
-			<span>{{ .name }}</span>
-		  {{ end }}
+		{{ if .Content }}
+		<p class="session-description">{{ .Content | plainify | truncate 150 }}</p>
 		{{ end }}
+
+		<div class="session-footer">
+			<div class="session-speakers-list">
+				{{ if .Params.speakers_info }}
+					{{ range .Params.speakers_info }}
+					<div class="speaker-avatar-group">
+						<img src="{{ .photoURL }}" alt="{{ .name }}" class="speaker-avatar" />
+						<div class="speaker-info-mini">
+							<strong class="speaker-name-mini">{{ .name }}</strong>
+							{{ if .company }}
+							<span class="speaker-company-mini">{{ .company }}</span>
+							{{ end }}
+						</div>
+					</div>
+					{{ end }}
+				{{ else }}
+					{{ range where .Site.RegularPages "Params.key" "in" .Params.speakers }}
+					<div class="speaker-avatar-group">
+						<img src="{{ .Params.photoURL }}" alt="{{ .Params.name }}" class="speaker-avatar" />
+						<div class="speaker-info-mini">
+							<strong class="speaker-name-mini">{{ .Params.name }}</strong>
+							{{ if .Params.company }}
+							<span class="speaker-company-mini">{{ .Params.company }}</span>
+							{{ end }}
+						</div>
+					</div>
+					{{ end }}
+				{{ end }}
+			</div>
+
+			<div class="session-icons">
+				{{ if .Params.presentation }}
+				<div class="session-icon" title="Slides available">{{ partial "icon.html" "slides" }}</div>
+				{{ end }}
+				{{ if .Params.videoId }}
+				<div class="session-icon" title="Video available">{{ partial "icon.html" "youtube" }}</div>
+				{{ end }}
+			</div>
+		</div>
 	</div>
-	{{ end }}
-
-	<div>
-		{{ if .Params.presentation }}
-		<div class="presentation">{{ partial "icon.html" "slides" }}</div>
-		{{ end }}
-		{{ if .Params.videoId }}
-		<div class="video">{{ partial "icon.html" "youtube" }}</div>
-		{{ end }}
-	</div>
-</div>
-
-
-<ul class="speakers">
-	{{ range where .Site.RegularPages "Params.key" "in" .Params.speakers }}
-	<li class="speaker">
-		<div class="speaker-img" style="background-image: url('{{ .Params.photoURL }}');"></div>
-		<strong class="speaker-name">{{ .Params.name }}</strong>
-		<span class="speaker-country">{{ .Params.country }}</span>
-		<div class="speaker-company">{{ .Params.company }}</div>
-	</li>
-	{{ end }}
-</ul>
-
 </a>

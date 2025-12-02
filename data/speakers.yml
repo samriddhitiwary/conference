@@ -1,53 +1,133 @@
+# 2024 Conference Speakers
 - name: "Andreas Eberhart"
   company: "Dashjoin, Ambassador"
   city: "Mannheim, Baden-Württemberg, Germany"
-  photoURL: "/images/speakers/andreas_eberhart.png"
+  photoURL: "/images/speakers/Speakers-2024/andreas_eberhart.png"
   conferenceYear: 2024
 
 - name: "Benjamin Granados"
   company: "Celonis, TSC Member"
   city: "Madrid, Community of Madrid, Spain"
-  photoURL: "/images/speakers/benjamin_granados.jpeg"
+  photoURL: "/images/speakers/Speakers-2024/benjamin_granados.jpeg"
   conferenceYear: 2024
 
 - name: "Loïc Lefèvre"
   company: "Oracle"
   city: "Tours, Centre-Val de Loire, France"
-  photoURL: "/images/speakers/loic_lefevre.jpeg"
+  photoURL: "/images/speakers/Speakers-2024/loic_lefevre.jpeg"
   conferenceYear: 2024
 
 - name: "Matthew Adams"
   company: "Endjin, TSC Member"
   city: "London, England, United Kingdom"
-  photoURL: "/images/speakers/matthew_adams.jpeg"
+  photoURL: "/images/speakers/Speakers-2024/matthew_adams.jpeg"
   conferenceYear: 2024
 
 - name: "Thomas Clark"
   company: "Octue CEO, Conference Sponsor"
   city: "Cambridge, England, United Kingdom"
-  photoURL: "/images/speakers/tom_clark.jpeg"
+  photoURL: "/images/speakers/Speakers-2024/tom_clark.jpeg"
   conferenceYear: 2024
 
-- name: "James Gough" 
+- name: "James Gough"
   company: "Morgan Stanley"
   city: "London, England, United Kingdom"
-  photoURL: "/images/speakers/james.jpg"
+  photoURL: "/images/speakers/Speakers-2024/james.jpg"
   conferenceYear: 2024
 
 - name: "Tom Collins"
   company: "DVLA, UK Gov"
   city: "Greater Swansea Area"
-  photoURL: "/images/speakers/tom_collins.jpeg"
+  photoURL: "/images/speakers/Speakers-2024/tom_collins.jpeg"
   conferenceYear: 2024
 
 - name: "Neha Singla"
   company: "Apple"
   city: "Seattle, Washington, United States"
-  photoURL: "/images/speakers/neha_singla.jpg"
+  photoURL: "/images/speakers/Speakers-2024/neha_singla.jpg"
   conferenceYear: 2024
 
 - name: "Juan Cruz Viotti"
   company: "Sourcemeta CEO, TSC Member"
   city: "London, England, United Kingdom"
-  photoURL: "/images/speakers/juan_cruz_viotti.jpeg"
+  photoURL: "/images/speakers/Speakers-2024/juan_cruz_viotti.jpeg"
   conferenceYear: 2024
+
+# 2025 Conference Speakers
+- name: "Jason Desrosiers"
+  company: "JSON Schema"
+  city: ""
+  photoURL: "/images/speakers/Speakers-2025/jason-jpg.jpeg"
+  conferenceYear: 2025
+
+- name: "Matthew Adams"
+  company: "Endjin, TSC Member"
+  city: "London, England, United Kingdom"
+  photoURL: "/images/speakers/Speakers-2025/matthew.jpeg"
+  conferenceYear: 2025
+
+- name: "Ege Korkan"
+  company: ""
+  city: ""
+  photoURL: "/images/speakers/Speakers-2025/ege.jpeg"
+  conferenceYear: 2025
+
+- name: "Andreas Eberhart"
+  company: "Dashjoin, Ambassador"
+  city: "Mannheim, Baden-Württemberg, Germany"
+  photoURL: "/images/speakers/Speakers-2024/andreas_eberhart.png"
+  conferenceYear: 2025
+
+- name: "Rémi Louf"
+  company: ""
+  city: ""
+  photoURL: "/images/speakers/Speakers-2025/remi.jpeg"
+  conferenceYear: 2025
+
+- name: "Sandrina Pereira"
+  company: ""
+  city: ""
+  photoURL: "/images/speakers/Speakers-2025/sandrina-jpg.jpeg"
+  conferenceYear: 2025
+
+- name: "Juan Cruz Viotti"
+  company: "Sourcemeta CEO, TSC Member"
+  city: "London, England, United Kingdom"
+  photoURL: "/images/speakers/Speakers-2025/juan_cruz_viotti.jpeg"
+  conferenceYear: 2025
+
+- name: "Loïc Lefèvre"
+  company: "Oracle"
+  city: "Tours, Centre-Val de Loire, France"
+  photoURL: "/images/speakers/Speakers-2025/loic.jpeg"
+  conferenceYear: 2025
+
+- name: "Louis de Benoist"
+  company: ""
+  city: ""
+  photoURL: "/images/speakers/Speakers-2025/louis_headshot.jpeg"
+  conferenceYear: 2025
+
+- name: "Daniel Marcotte"
+  company: ""
+  city: ""
+  photoURL: "/images/speakers/Speakers-2025/Daniel Marcotte.jpeg"
+  conferenceYear: 2025
+
+- name: "Ryan Lee"
+  company: ""
+  city: ""
+  photoURL: "/images/speakers/Speakers-2025/Ryan.jpeg"
+  conferenceYear: 2025
+
+- name: "Onyedikachi Hope Amaechi-Okorie"
+  company: ""
+  city: ""
+  photoURL: "/images/speakers/Speakers-2025/onyedikachi.JPG"
+  conferenceYear: 2025
+
+- name: "Ben Hutton"
+  company: ""
+  city: ""
+  photoURL: "/images/speakers/Speakers-2025/ben-hutton.jpeg"
+  conferenceYear: 2025

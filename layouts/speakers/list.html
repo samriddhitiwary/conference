@@ -10,7 +10,7 @@
 
 <section class="speakers-list">
   <ul class="speakers">
-    {{ $speakers := where .Site.Data.speakers "conferenceYear" 2024 }}
+    {{ $speakers := where .Site.Data.speakers "conferenceYear" 2025 }}
     {{ range $speakers }}
       <li>
         {{ partial "speaker.html" . }}

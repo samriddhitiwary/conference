@@ -1,3 +1,7 @@
 - key: main
+  label: 2025 Schedule
+  description: Schedule for JSON Schema Conference 11 December 2025
+
+- key: main_2024
   label: 2024 Schedule
   description: Schedule for JSON Schema Conference 5 December 2024
