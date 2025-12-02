@@ -1,5 +1,15 @@
 platinum:
-  - name: Octue
-    homepage_url: https://www.octue.com/
-    logo: octue.svg
-    description: Octue helps scientists and engineers in energy and climate sectors work with data.
+  - name: Sourcemeta
+    homepage_url: https://www.sourcemeta.com/
+    logo: sourcemeta.svg
+    description: Sourcemeta provides tools and solutions for JSON Schema validation and management.
+  - name: .txt
+    homepage_url: https://txt.co/
+    logo: txt.svg
+    description: .txt is a cloud platform for document management and collaboration.
+
+media:
+  - name: dev.events
+    homepage_url: https://dev.events/
+    logo: dev-events.png
+    description: dev.events is a platform for discovering and promoting tech events.

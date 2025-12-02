@@ -2,7 +2,7 @@ platinum:
   items:
     - name: Octue
       homepage_url: https://www.octue.com/
-      logo: octue.svg
+      logo: octue.svg 
 
 gold:
   items:
