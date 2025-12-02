@@ -7,39 +7,7 @@
 </a>
 
 <style>
-/* Sponsor Card */
-.sponsor-card {
-  width: 280px;
-  min-height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.6s forwards;
-  cursor: pointer;
-  padding: 1.5rem;
-}
-
-.sponsor-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-}
-
-.sponsor-logo img {
-  max-width: 100%;
-  max-height: 100px;
-  object-fit: contain;
-}
-
+/* Sponsor Button */
 .sponsor-button {
   display: inline-block;
   text-align: center;
@@ -62,16 +30,5 @@
 .sponsor-button:visited {
   color: #fff;
   background-color: #0071BC;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 </style>
