@@ -9,7 +9,7 @@ tags:
   - future
 speakers_info:
   - name: "Onyedikachi Hope Amaechi-Okorie"
-    company: ""
+    company: "Technical Community Advocate, JSON Schema"
     city: ""
     photoURL: "/images/speakers/Speakers-2025/onyedikachi.JPG"
 draft: false

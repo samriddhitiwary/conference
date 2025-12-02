@@ -9,7 +9,7 @@ tags:
   - frontend
 speakers_info:
   - name: "Sandrina Pereira"
-    company: ""
+    company: "Staff Frontend Engineer at Remote"
     city: ""
     photoURL: "/images/speakers/Speakers-2025/sandrina-jpg.jpeg"
 draft: false

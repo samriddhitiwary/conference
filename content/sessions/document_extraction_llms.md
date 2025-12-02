@@ -10,7 +10,7 @@ tags:
   - LLM
 speakers_info:
   - name: "Louis de Benoist"
-    company: ""
+    company: "CEO at Retab"
     city: ""
     photoURL: "/images/speakers/Speakers-2025/louis_headshot.jpeg"
 draft: false

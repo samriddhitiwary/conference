@@ -9,7 +9,7 @@ tags:
   - tooling
 speakers_info:
   - name: "Daniel Marcotte"
-    company: ""
+    company: "Engineer at KSON"
     city: ""
     photoURL: "/images/speakers/Speakers-2025/Daniel Marcotte.jpeg"
 draft: false

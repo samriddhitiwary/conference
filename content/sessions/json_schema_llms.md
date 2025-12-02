@@ -10,7 +10,7 @@ tags:
   - LLM
 speakers_info:
   - name: "Rémi Louf"
-    company: ""
+    company: "Cofounder and CEO of .txt"
     photoURL: "/images/speakers/Speakers-2025/remi.jpeg"
 draft: false
 ---

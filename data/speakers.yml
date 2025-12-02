@@ -55,7 +55,7 @@
 
 # 2025 Conference Speakers
 - name: "Jason Desrosiers"
-  company: "JSON Schema"
+  company: "JSON Schema Spec & Tooling Architect at Hyperjump Software"
   city: ""
   photoURL: "/images/speakers/Speakers-2025/jason-jpg.jpeg"
   conferenceYear: 2025
@@ -67,7 +67,7 @@
   conferenceYear: 2025
 
 - name: "Ege Korkan"
-  company: ""
+  company: "IoT Architect at Siemens"
   city: ""
   photoURL: "/images/speakers/Speakers-2025/ege.jpeg"
   conferenceYear: 2025
@@ -79,13 +79,13 @@
   conferenceYear: 2025
 
 - name: "Rémi Louf"
-  company: ""
+  company: "Cofounder and CEO of .txt"
   city: ""
   photoURL: "/images/speakers/Speakers-2025/remi.jpeg"
   conferenceYear: 2025
 
 - name: "Sandrina Pereira"
-  company: ""
+  company: "Staff Frontend Engineer at Remote"
   city: ""
   photoURL: "/images/speakers/Speakers-2025/sandrina-jpg.jpeg"
   conferenceYear: 2025
@@ -103,31 +103,31 @@
   conferenceYear: 2025
 
 - name: "Louis de Benoist"
-  company: ""
+  company: "CEO at Retab"
   city: ""
   photoURL: "/images/speakers/Speakers-2025/louis_headshot.jpeg"
   conferenceYear: 2025
 
 - name: "Daniel Marcotte"
-  company: ""
+  company: "Engineer at KSON"
   city: ""
   photoURL: "/images/speakers/Speakers-2025/Daniel Marcotte.jpeg"
   conferenceYear: 2025
 
 - name: "Ryan Lee"
-  company: ""
+  company: "Principal Software Engineer at Bluetel Solutions"
   city: ""
   photoURL: "/images/speakers/Speakers-2025/Ryan.jpeg"
   conferenceYear: 2025
 
 - name: "Onyedikachi Hope Amaechi-Okorie"
-  company: ""
+  company: "Technical Community Advocate, JSON Schema"
   city: ""
   photoURL: "/images/speakers/Speakers-2025/onyedikachi.JPG"
   conferenceYear: 2025
 
 - name: "Ben Hutton"
-  company: ""
+  company: "JSON Schema"
   city: ""
   photoURL: "/images/speakers/Speakers-2025/ben-hutton.jpeg"
   conferenceYear: 2025

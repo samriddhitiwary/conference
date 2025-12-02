@@ -8,7 +8,7 @@ tags:
   - talk
 speakers_info:
   - name: "Ege Korkan"
-    company: ""
+    company: "IoT Architect at Siemens"
     city: ""
     photoURL: "/images/speakers/Speakers-2025/ege.jpeg"
   - name: "Andreas Eberhart"

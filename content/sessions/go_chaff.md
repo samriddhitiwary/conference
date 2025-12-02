@@ -9,7 +9,7 @@ tags:
   - golang
 speakers_info:
   - name: "Ryan Lee"
-    company: ""
+    company: "Principal Software Engineer at Bluetel Solutions"
     city: ""
     photoURL: "/images/speakers/Speakers-2025/Ryan.jpeg"
 draft: false

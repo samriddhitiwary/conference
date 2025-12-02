@@ -8,7 +8,7 @@ tags:
   - talk
 speakers_info:
   - name: "Jason Desrosiers"
-    company: "JSON Schema"
+    company: "JSON Schema Spec & Tooling Architect at Hyperjump Software"
     photoURL: "/images/speakers/Speakers-2025/jason-jpg.jpeg"
 draft: false
 ---
