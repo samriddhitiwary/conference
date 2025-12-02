@@ -1,3 +1,101 @@
+# 2025 Slots
+- key: breakfast
+  start: "08:45"
+  end: "09:15"
+  duration: 30
+  row: { start: 1, end: 2 }
+
+- key: json_schema_v1
+  start: "09:15"
+  end: "09:40"
+  duration: 25
+  row: { start: 2, end: 3 }
+
+- key: composition_for_win
+  start: "09:45"
+  end: "10:10"
+  duration: 25
+  row: { start: 3, end: 4 }
+
+- key: apis_to_embedded_devices
+  start: "10:15"
+  end: "10:40"
+  duration: 25
+  row: { start: 4, end: 5 }
+
+- key: coffee_break_morning
+  start: "10:40"
+  end: "11:00"
+  duration: 20
+  row: { start: 5, end: 6 }
+
+- key: json_schema_llms
+  start: "11:00"
+  end: "11:25"
+  duration: 25
+  row: { start: 6, end: 7 }
+
+- key: fullstack_forms
+  start: "11:30"
+  end: "11:55"
+  duration: 25
+  row: { start: 7, end: 8 }
+
+- key: enterprises_struggle
+  start: "12:00"
+  end: "12:25"
+  duration: 25
+  row: { start: 8, end: 9 }
+
+- key: database_schema_api
+  start: "12:30"
+  end: "12:55"
+  duration: 25
+  row: { start: 9, end: 10 }
+
+- key: lunch
+  start: "13:00"
+  end: "14:00"
+  duration: 60
+  row: { start: 10, end: 11 }
+
+- key: document_extraction_llms
+  start: "14:00"
+  end: "14:25"
+  duration: 25
+  row: { start: 11, end: 12 }
+
+- key: universal_interfaces
+  start: "14:30"
+  end: "14:55"
+  duration: 25
+  row: { start: 12, end: 13 }
+
+- key: go_chaff
+  start: "15:00"
+  end: "15:25"
+  duration: 25
+  row: { start: 13, end: 14 }
+
+- key: coffee_break_afternoon
+  start: "15:30"
+  end: "15:55"
+  duration: 25
+  row: { start: 14, end: 15 }
+
+- key: evolving_json_schema
+  start: "15:55"
+  end: "16:20"
+  duration: 25
+  row: { start: 15, end: 16 }
+
+- key: closing_remarks
+  start: "16:25"
+  end: "16:50"
+  duration: 25
+  row: { start: 16, end: 17 }
+
+# 2024 Slots
 - key: state_of_json_schema
   start: "10:00"
   end: "10:25"

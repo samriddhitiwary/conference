@@ -1,16 +1,141 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
-<section class="speakers">
+<section class="home-speakers-section">
 
-	<div class="inner">
+	<div class="speakers-header">
 		{{ .Inner }}
 	</div>
 
-	<ul class="shuffle">
-		{{ range where $.Site.AllPages "Params.feature" true }}
-		<li>
-			{{ partial "speaker.html" . }}
-		</li>
+	<div class="speakers-grid-3col">
+		{{ $speakers := where $.Site.Data.speakers "conferenceYear" 2025 }}
+		{{ range first 12 $speakers }}
+			<div class="speaker-card-wrapper">
+				{{ partial "speaker.html" . }}
+			</div>
 		{{ end }}
-	</ul>
+	</div>
+
+	<div class="view-all-speakers">
+		<a href="/speakers" class="view-all-button">View All Speakers</a>
+	</div>
 
 </section>
+
+<style>
+	.home-speakers-section {
+		padding: 4rem 0;
+		width: 100%;
+		background-color: #fff;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.speakers-header {
+		text-align: center;
+		margin-bottom: 3rem;
+		width: 100%;
+	}
+
+	.speakers-header h2 {
+		font-size: 2.8rem;
+		font-weight: 800;
+		color: #1a1a1a;
+		margin-bottom: 1rem;
+		letter-spacing: -0.5px;
+		line-height: 1.2;
+	}
+
+	.speakers-header p {
+		font-size: 1.2rem;
+		color: #444;
+		max-width: 700px;
+		margin: 0 auto;
+		line-height: 1.6;
+		font-weight: 400;
+	}
+
+	.speakers-grid-3col {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		width: 100%;
+		max-width: 1100px;
+		margin: 0 auto 2rem;
+		padding: 0 2rem;
+		justify-items: center;
+		align-items: start;
+	}
+
+	.speaker-card-wrapper {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.speaker-card-wrapper .speaker {
+		margin: 0;
+		width: 100%;
+		max-width: 300px;
+	}
+
+	.view-all-speakers {
+		text-align: center;
+		margin-top: 3rem;
+		width: 100%;
+	}
+
+	.view-all-button {
+		display: inline-block;
+		padding: 1.1rem 2.5rem;
+		background-color: #0071BC;
+		color: #fff !important;
+		text-decoration: none;
+		border-radius: 2.5rem;
+		font-weight: 700;
+		font-size: 1.05rem;
+		letter-spacing: 0.5px;
+		transition: all 0.3s ease;
+		box-shadow: 0 5px 15px rgba(0, 113, 188, 0.35);
+		text-transform: uppercase;
+	}
+
+	.view-all-button:hover {
+		background-color: #005f9c;
+		box-shadow: 0 8px 25px rgba(0, 113, 188, 0.45);
+		transform: translateY(-3px);
+	}
+
+	/* Responsive Design */
+	@media (max-width: 992px) {
+		.speakers-grid-3col {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+			padding: 0 1.5rem;
+		}
+
+		.speakers-header h2 {
+			font-size: 2.3rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.home-speakers-section {
+			padding: 3rem 1rem;
+		}
+
+		.speakers-header h2 {
+			font-size: 2rem;
+		}
+
+		.speakers-header p {
+			font-size: 1.1rem;
+		}
+
+		.speakers-grid-3col {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+			padding: 0 1rem;
+		}
+	}
+</style>

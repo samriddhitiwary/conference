@@ -5,13 +5,18 @@
 {{ $speakerPhotoURL := "" }}
 {{ $firstSpeaker := "" }}
 
-{{/* Check for the 'speakers_info' array in the front matter */}}
-{{ with $session.Params.speakers_info }}
-  {{/* Get the first speaker object from the array */}}
-  {{ $firstSpeaker = index . 0 }}
-  {{ with $firstSpeaker.photoURL }}
-    {{/* Directly use the provided photoURL */}}
-    {{ $speakerPhotoURL = . }}
+{{/* Check for direct 'image' field first (for breaks, lunch, etc) */}}
+{{ with $session.Params.image }}
+  {{ $speakerPhotoURL = . }}
+{{ else }}
+  {{/* Check for the 'speakers_info' array in the front matter */}}
+  {{ with $session.Params.speakers_info }}
+    {{/* Get the first speaker object from the array */}}
+    {{ $firstSpeaker = index . 0 }}
+    {{ with $firstSpeaker.photoURL }}
+      {{/* Directly use the provided photoURL */}}
+      {{ $speakerPhotoURL = . }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
@@ -20,7 +25,7 @@
 
 
 {{/* --- The Card HTML Structure --- */}}
-<a href="{{ $session.Permalink }}" class="session-link-wrapper">
+<div class="session-card-no-link">
   <article class="session-card format-{{ anchorize $session.Params.format }}">
 
     <img src="{{ $speakerPhotoURL }}" class="card-img" alt="speaker image">
@@ -30,7 +35,9 @@
 
       {{ with $firstSpeaker }}
         <strong class="speaker-name">{{ .name }}</strong>
-        <div class="speaker-company">{{ .company }}</div>
+        {{ with .company }}
+          <div class="speaker-company">{{ . }}</div>
+        {{ end }}
       {{ end }}
 
       <div class="room-and-tags">
@@ -43,15 +50,14 @@
     </div>
 
   </article>
-</a>
+</div>
 
 <style>
 
-.session-link-wrapper {
-  text-decoration: none;
-  color: inherit;
+.session-card-no-link {
   display: flex;
   height: 180px;
+  cursor: pointer;
 }
 
 /* Main Session Card styling */
@@ -71,6 +77,11 @@
   box-sizing: border-box;
 }
 
+.session-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
 .session-card::after{
     content: "";
     position: absolute;
@@ -81,26 +92,20 @@
     width: 10px;
 }
 
-.session-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-}
-
 /* Image container */
 .card-img {
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  transition: transform 0.4s ease;
   margin-right: 1.5rem;
   flex-shrink: 0;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
 .session-card:hover .card-img {
   transform: scale(1.05);
 }
-
 
 .session-card .info {
   padding: 0;
@@ -115,10 +120,6 @@
   margin: 0 0 0.2rem 0;
   font-weight: 600;
   color: #222;
-}
-
-.session-title:hover {
-  color: #0071BC;
 }
 
 .speaker-name {
@@ -157,10 +158,7 @@
 
 /* --- RESPONSIVE STYLES --- */
 @media (max-width: 480px) {
-  .session-link-wrapper {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
+  .session-card-no-link {
     height: 160px !important;
   }
 
@@ -170,7 +168,7 @@
     font-weight: 600;
     color: #222;
   }
-  
+
   .speaker-name {
     display: block;
     font-size: 0.8rem;
@@ -183,7 +181,7 @@
   }
 
   /* Allow card height to be determined by its content */
-  .session-link-wrapper {
+  .session-card-no-link {
       height: auto;
   }
 

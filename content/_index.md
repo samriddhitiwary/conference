@@ -45,10 +45,18 @@ draft: false
 
 ## What is JSON Schema Conference?
 
-The JSON Schema Conference brings together adopters, implementers, leaders and innovators 
+The JSON Schema Conference brings together adopters, implementers, leaders and innovators
 of the JSON Schema Ecosystem to further the education, adoption and evolution of the JSON Schema specification.
 
 {{% /home-info %}}
+
+{{% home-speakers %}}
+
+## Meet Our 2025 Speakers
+
+Join us to hear from industry experts, thought leaders, and innovators in the JSON Schema ecosystem.
+
+{{% /home-speakers %}}
 
 {{< home-location
     address="CNIT Forest Paris - France"

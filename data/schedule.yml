@@ -1,8 +1,49 @@
+# 2025 Schedule
+- day: 2025-12-11
+  start: "08:45"
+  end: "16:50"
+  rooms:
+    - room: main
+      slots:
+        - slot: breakfast
+          talk: breakfast
+        - slot: json_schema_v1
+          talk: json_schema_v1
+        - slot: composition_for_win
+          talk: composition_for_win
+        - slot: apis_to_embedded_devices
+          talk: apis_to_embedded_devices
+        - slot: coffee_break_morning
+          talk: coffee_break_morning
+        - slot: json_schema_llms
+          talk: json_schema_llms
+        - slot: fullstack_forms
+          talk: fullstack_forms
+        - slot: enterprises_struggle
+          talk: enterprises_struggle
+        - slot: database_schema_api
+          talk: database_schema_api
+        - slot: lunch
+          talk: lunch
+        - slot: document_extraction_llms
+          talk: document_extraction_llms
+        - slot: universal_interfaces
+          talk: universal_interfaces
+        - slot: go_chaff
+          talk: go_chaff
+        - slot: coffee_break_afternoon
+          talk: coffee_break_afternoon
+        - slot: evolving_json_schema
+          talk: evolving_json_schema
+        - slot: closing_remarks
+          talk: closing_remarks
+
+# 2024 Schedule
 - day: 2024-12-05
   start: "10:00"
   end: "15:30"
   rooms:
-    - room: main
+    - room: main_2024
       slots:
         - slot: state_of_json_schema
           talk: state_of_json_schema
