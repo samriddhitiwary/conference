@@ -31,9 +31,10 @@ draft: false
               url="./speakers"
               target="_blank" >}}
 
-{{< button-link label="Get Tickets"
-              url="https://ticket.apidays.global/event/apidays-paris-2025/3cccd07f-acb2-466e-8d91-cb1f208ecf42?_gl=1*1i6mx1e*_gcl_au*MTY3OTY0ODcyNS4xNzUwMTA0MzA4" 
-              target="_blank" >}}
+
+{{< button-link label="Buy Tickets" 
+              url="https://ticket.apidays.global/event/apidays-paris-2025/3cccd07f-acb2-466e-8d91-cb1f208ecf42/json-schema-conference-at-apidays-paris-2025"               target="_blank">}}
+
 
 </div>
 

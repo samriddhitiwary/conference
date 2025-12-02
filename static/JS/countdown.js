@@ -1,7 +1,10 @@
 // Countdown to December 11th, 2025
 const countdownDate = new Date("Dec 11, 2025 00:00:00").getTime();
 
-const countdown = setInterval(function () {
+// Track previous values for animation
+let previousValues = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+function updateCountdown() {
   const now = new Date().getTime();
   const distance = countdownDate - now;
 
@@ -12,19 +15,46 @@ const countdown = setInterval(function () {
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-  const secondsEl = document.getElementById("seconds");
+  const daysEl = document.querySelector(".days");
+  const hoursEl = document.querySelector(".hours");
+  const minutesEl = document.querySelector(".minutes");
+  const secondsEl = document.querySelector(".seconds");
 
-  if (daysEl) daysEl.innerHTML = days;
-  if (hoursEl) hoursEl.innerHTML = hours;
-  if (minutesEl) minutesEl.innerHTML = minutes;
-  if (secondsEl) secondsEl.innerHTML = seconds;
+  // Add animation class when values change
+  function updateWithAnimation(element, newValue, oldValue) {
+    if (element && newValue !== oldValue) {
+      element.textContent = String(newValue).padStart(2, '0');
+      // Add pulse animation
+      const box = element.closest('.countdown-number-box');
+      if (box) {
+        box.style.animation = 'none';
+        setTimeout(() => {
+          box.style.animation = 'pulse-number 0.3s ease-in-out';
+        }, 10);
+      }
+    } else if (element && !element.textContent) {
+      element.textContent = String(newValue).padStart(2, '0');
+    }
+  }
+
+  updateWithAnimation(daysEl, days, previousValues.days);
+  updateWithAnimation(hoursEl, hours, previousValues.hours);
+  updateWithAnimation(minutesEl, minutes, previousValues.minutes);
+  updateWithAnimation(secondsEl, seconds, previousValues.seconds);
+
+  previousValues = { days, hours, minutes, seconds };
 
   if (distance < 0) {
     clearInterval(countdown);
     const countdownEl = document.getElementById("countdown");
-    if (countdownEl) countdownEl.innerHTML = "Conference Started!";
+    if (countdownEl) {
+      countdownEl.innerHTML = '<div style="font-size: 2rem; font-weight: 700; color: white; animation: pulse-number 0.5s ease-in-out;">Conference Started! 🎉</div>';
+    }
   }
-}, 1000);
+}
+
+// Initial update
+updateCountdown();
+
+// Update every second
+const countdown = setInterval(updateCountdown, 1000);

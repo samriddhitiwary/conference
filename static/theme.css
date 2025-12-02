@@ -127,109 +127,7 @@ body {
 		gap: 0rem; 
 	}
 }
-.countdown-container {
-  background: white;
-  border-radius: 1rem;
-  padding: 0.8rem;
-  margin: 0.5rem auto;
-  max-width: 600px;
-  width: calc(100% - 2rem);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  color: var(--primary);
-}
 
-.countdown-header h4 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-  color: var(--primary);
-}
-
-.countdown-header h5 {
-  font-size: 1.1rem;
-  color: var(--primary);
-  margin: 0;
-}
-
-.countdown-timer {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 0.8rem 0;
-  flex-wrap: wrap;
-  max-width: 100%;
-}
-
-.countdown-item {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 0.5rem;
-  padding: 0.4rem;
-  min-width: 70px;
-  flex: 1;
-  max-width: 80px;
-  height: 55px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.countdown-item span {
-  display: block;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--primary);
-  line-height: 1;
-}
-
-.countdown-item label {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  margin-top: 0.2rem;
-  opacity: 0.8;
-}
-
-/* iPhone 14 Pro specific */
-@media (max-width: 430px) {
-  .countdown-container {
-    margin: 0.3rem auto;
-    padding: 0.6rem;
-    width: calc(100% - 1rem);
-  }
-  
-  .countdown-header h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
-  }
-  
-  .countdown-header h5 {
-    font-size: 1rem;
-  }
-  
-  .countdown-timer {
-    gap: 0.5rem;
-    margin: 0.6rem 0;
-    justify-content: space-between;
-  }
-  
-  .countdown-item {
-    min-width: 60px;
-    max-width: 70px;
-    padding: 0.3rem 0.2rem;
-    height: 50px;
-    flex: 1;
-  }
-  
-  .countdown-item span {
-    font-size: 1.2rem;
-  }
-  
-  .countdown-item label {
-    font-size: 0.65rem;
-  }
-}
 
 section.location {
   margin: 2rem 0;
@@ -755,32 +653,57 @@ section.location .direction .btn.btn-icon-only svg {
 
 
 .sponsors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-	justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
 }
 
 .sponsor-card {
-  background: #f9f9f9;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  background: #fff !important;
+  border-radius: 8px !important;
+  padding: 1rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  width: 180px !important;
+  height: 100px !important;
+  min-width: 180px !important;
+  min-height: 100px !important;
+  max-width: 180px !important;
+  max-height: 100px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  overflow: hidden !important;
 }
 
 .sponsor-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  transform: translateY(-4px) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important;
 }
 
-.sponsor-logo {
-  height: 80px;
-  width: auto;
-  margin-bottom: 0.5rem;
-  object-fit: contain;
+.sponsor-card a,
+.sponsor-card .sponsor-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.sponsor-logo,
+img.sponsor-logo,
+.sponsor-card img,
+.sponsor-logo img {
+  max-height: 60px !important;
+  max-width: 140px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
 }
 
 .sponsor-name {
@@ -794,6 +717,7 @@ section.location .direction .btn.btn-icon-only svg {
   color: #555;
   line-height: 1.4;
 }
+
 .sponsors-grid:only-child,
 .sponsors-grid:has(.sponsor-card:only-child) {
   max-width: 300px; 
