@@ -15,4 +15,4 @@ speakers_info:
 draft: false
 ---
 
-Learn how JSON Schema can constrain and guide Large Language Models to produce structured, validated JSON outputs for reliable AI applications.
+We present a novel application of JSON Schema: using it as a real-time contract for guiding Large Language Model (LLM) generation rather than merely for post-hoc validation. Our implementation achieves 100% schema compliance in production deployments across healthcare, autonomous agents, and data extraction. This work expands JSON Schema's utility beyond validation, positioning it as a bidirectional contract that controls both validation and generation, and suggests opportunities for formalizing generation-time usage patterns within the JSON Schema ecosystem.

@@ -16,4 +16,12 @@ speakers_info:
 draft: false
 ---
 
-Learn how to leverage JSON Schema with Large Language Models to extract structured data from documents reliably in production environments.
+Structured generation with LLMs makes it easier to extract standardized data from complex documents. But the process for building & evaluating the right schema is still largely artisanal. Retab has built an end-to-end platform for rigorously building these schema-driven pipelines. In this talk, Louis will go over technical insights and best practices.
+
+He will cover the whole process:
+- Going from business problem to JSON schema
+- Context engineering for large documents 
+- Designing evals for first-order and second-order extractions
+- Using k-LLM consensus to boost performance and quantify uncertainty
+- Retab’s agent for auto-optimizing JSON schema descriptions
+- Human-in-the-loop for schema-driven automations

@@ -18,4 +18,4 @@ speakers_info:
 draft: false
 ---
 
-Discover how JSON Schema extends beyond traditional APIs to validate and structure data in embedded devices and serial communication protocols.
+Metadata management is the practice of cataloging, organizing, and maintaining information about data assets to ensure their accuracy, consistency, and usability. Traditionally, this has been achieved through the deployment of data catalogs, which provide centralized repositories for descriptive and structural information. In recent years, this approach has evolved to incorporate additional elements such as data lineage and standardized API descriptions, including OpenAPI and JSON Schema, to support greater transparency and interoperability across systems. Building on this comprehensive framework, we propose extending metadata management principles into the Internet of Things (IoT) domain by applying similar methodologies to W3C Web of Things (WoT) standards and JSON Schema. This advancement aims to enhance discoverability, reliability, and integration of IoT devices within broader data ecosystems.

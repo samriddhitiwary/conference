@@ -15,4 +15,6 @@ speakers_info:
 draft: false
 ---
 
-Discover how JSON Schema creates a powerful bridge between database schemas and API contracts, enabling seamless data flow across your architecture.
+JSON Schemas are the backbone of modern API contracts, but what if your database could generate, version, transform, and serve them natively? In this session, we'll explore how the new Oracle AI Database 26ai provides JSON Schema management capabilities to improve your productivity: automatic generation, versioning, transformation, comparison, exposition to application tiers through REST or GraphQL... Last but not least, we'll present a way to expose your relational data into rich JSON Schema and JSON Documents, for example, to train your private AI models...
+
+Come ready to rethink how JSON Schemas and databases collaborate in this API era!

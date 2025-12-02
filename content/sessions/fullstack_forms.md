@@ -15,4 +15,5 @@ speakers_info:
 draft: false
 ---
 
-Explore how JSON Schema powers end-to-end form validation from frontend to backend, ensuring consistency and type safety across your full stack.
+One form is easy to create and maintain. Many forms become a pain with a lot of duplication between the server and the client: Duplicated data structures, validations, sync deploys, etc...
+Come learn how JSON Schemas can become the SSoT (Single-Source of Truth) to manage your Forms at scale, filling the gap between any server and the browser without compromising the User Experience.
