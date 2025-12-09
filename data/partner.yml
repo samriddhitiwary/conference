@@ -7,6 +7,20 @@ platinum:
     homepage_url: https://txt.co/
     logo: txt.svg
     description: .txt is a cloud platform for document management and collaboration.
+  - name: Oracle
+    homepage_url: https://www.oracle.com/
+    logo: oracle.png
+    description: Oracle is a global technology company providing cloud solutions, databases, and enterprise software.
+
+silver:
+  - name: Remote
+    homepage_url: https://remote.com/
+    logo: remote.svg
+    description: Remote is a global HR platform for distributed teams.
+  - name: Siemens
+    homepage_url: https://www.siemens.com/
+    logo: simens.svg
+    description: Siemens is a global technology company focused on industry, infrastructure, transport, and healthcare.
 
 media:
   - name: dev.events
